@@ -1,6 +1,6 @@
 # ContactInformationUI
 
-## This project was generated with Angular CLI version 17.0.0. It is hlep to manage contact information.
+## This project was generated with Angular CLI version 17.0.0 It is hlep to manage contact information.
 
 # Development server
 
