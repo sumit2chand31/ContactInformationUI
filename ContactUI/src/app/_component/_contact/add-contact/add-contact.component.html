@@ -1,0 +1,62 @@
+<form [formGroup]="conatctForm" (ngSubmit)="SaveConatct()">
+<mat-card>
+  <mat-card-header>
+    <h6>{{title}}</h6>
+  </mat-card-header>
+  <mat-card-content>
+    @if(isedit){
+      <mat-form-field >
+        <mat-label>Id</mat-label>
+        <input formControlName="id" matInput readonly>
+      </mat-form-field>
+    }
+
+    @if(isErrorMessage){
+      <p style="color: red;">{{errorMessage}}</p>
+    }
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input formControlName="firstname" matInput>
+      @if (submitted && f['firstname'].errors) {
+        @if(submitted && f['firstname'].errors['required']){
+          <span  class="text-danger">
+            First name is required.
+          </span>
+        }
+    }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input formControlName="lastname" matInput>
+      @if (submitted && f['lastname'].errors) {
+        @if(submitted && f['lastname'].errors['required']){
+          <span  class="text-danger">
+            Last name is required.
+          </span>
+        }
+    }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput>
+      @if (submitted && f['email'].errors) {
+        @if(submitted && f['email'].errors['required']){
+          <span  class="text-danger">
+            Email is required.
+          </span>
+        }
+        @if(submitted && f['email'].errors['email']){
+          <span  class="text-danger">
+            Enter vaild email.
+          </span>
+        }
+    }
+    </mat-form-field>
+
+    <mat-card-action>
+      <button type="submit" class="btn btn-success" > Save</button>
+      <button type="submit"  (click)="ClosePopup()" class="btn btn-secondary"> close</button>
+    </mat-card-action>
+  </mat-card-content>
+</mat-card>
+</form>
